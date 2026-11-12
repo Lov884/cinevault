@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineVault — Movie Catalog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- SEMANTIC HEADER & NAVIGATION -->
+  <header class="site-header">
+    <a href="#" class="logo">🎬 CineVault</a>
+    <nav class="site-nav">
+      <a href="#catalog">Catalog</a>
+      <a href="#details">Details</a>
+      <a href="#review-form">Add Review</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Discover your next favorite movie</h1>
+      <p>Browse, search, and review films.</p>
+    </section>
+
+    <!-- CATALOG LIST (Min 5 records via JS) -->
+    <section id="catalog" class="catalog">
+      <h2>Catalog</h2>
+      <div class="catalog-controls">
+        <label for="searchInput" class="visually-hidden">Search by title</label>
+        <input type="search" id="searchInput" placeholder="Search by title...">
+      </div>
+      <div class="movie-grid" id="movieGrid"></div>
+    </section>
+
+    <!-- DETAILS SCREEN (Detailed info about one object) -->
+    <section id="details" class="details" hidden>
+      <h2>Movie Details</h2>
+      <article class="details-card" id="detailsCard"></article>
+    </section>
+
+    <!-- USER FORM (At least 4 fields of different types + validation) -->
+    <section id="review-form" class="review-form-section">
+      <h2>Leave a review</h2>
+      <form id="reviewForm" novalidate>
+        
+        <div class="form-field">
+          <label for="movieSelect">Movie</label>
+          <select id="movieSelect" required>
+            <option value="">— Choose a movie —</option>
+            <!-- JS will populate this -->
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="author">Your name</label>
+          <input type="text" id="author" required minlength="2">
+        </div>
+
+        <div class="form-field">
+          <label for="rating">Rating (1–10)</label>
+          <input type="number" id="rating" min="1" max="10" required>
+        </div>
+
+        <div class="form-field">
+          <label for="reviewText">Review</label>
+          <textarea id="reviewText" rows="4" required minlength="10"></textarea>
+        </div>
+
+        <p class="form-error" id="formError" role="alert"></p>
+        <p class="form-success" id="formSuccess" role="status"></p>
+        
+        <button type="submit">Submit review</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 CineVault</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
